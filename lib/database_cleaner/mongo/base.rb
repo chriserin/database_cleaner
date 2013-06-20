@@ -1,7 +1,7 @@
 module DatabaseCleaner
   module Mongo
     def self.available_strategies
-      %w[truncation]
+      %w[truncation stump]
     end
     module Base
       def db=(desired_db)

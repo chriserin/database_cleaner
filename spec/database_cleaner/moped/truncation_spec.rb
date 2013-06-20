@@ -68,8 +68,6 @@ module DatabaseCleaner
           ensure_counts(MopedTest::Widget => 1, MopedTest::Gadget => 0)
         end
       end
-
     end
-
   end
 end
