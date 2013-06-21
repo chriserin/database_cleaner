@@ -30,10 +30,8 @@ module DatabaseCleaner
       end
 
       context "when collections are provided to the :only option" do
-        let(:args) {p "set args"; {:only => ['MongoTest::Widget']}}
-        let(:x) { p "set x"; "x"}
+        let(:args) {{:only => ['MongoTest::Widget']}}
         it "only truncates the specified collections" do
-          x
           create_widget
           create_gadget
           ensure_counts(MongoTest::Widget => 1, MongoTest::Gadget => 1)
