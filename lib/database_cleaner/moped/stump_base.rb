@@ -7,6 +7,10 @@ module DatabaseCleaner
       include ::DatabaseCleaner::Moped::Base
       include ::DatabaseCleaner::Generic::Truncation
 
+      def start
+        @test_time = Time.now
+      end
+
       def clean
         if @only
           collections.each { |c| session[c].find(:updated_at => { "$gte" => @test_time}).remove_all if @only.include?(c) }
