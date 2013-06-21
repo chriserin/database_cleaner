@@ -3,6 +3,7 @@ require 'database_cleaner/generic/truncation'
 require 'database_cleaner/mongo/truncation_mixin'
 require 'database_cleaner/mongo/stump_mixin'
 require 'database_cleaner/moped/truncation_base'
+require 'database_cleaner/moped/stump_base'
 require 'mongoid/version'
 
 module DatabaseCleaner
