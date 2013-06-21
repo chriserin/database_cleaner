@@ -11,7 +11,7 @@ module DatabaseCleaner
       include ::DatabaseCleaner::Mongoid::Base
       include ::DatabaseCleaner::Generic::Truncation
 
-      if true #::Mongoid::VERSION < '3'
+      if ::Mongoid::VERSION < '3'
 
         include ::DatabaseCleaner::Mongo::StumpMixin
 
@@ -23,14 +23,13 @@ module DatabaseCleaner
 
       else
 
-        raise NotImplementedError.new
-        #include ::DatabaseCleaner::Moped::StumpBase
+        include ::DatabaseCleaner::Moped::StumpBase
 
-        #private
+        private
 
-        #def session
-        #  ::Mongoid.default_session
-        #end
+        def session
+          ::Mongoid.default_session
+        end
 
       end
 
