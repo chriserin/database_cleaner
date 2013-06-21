@@ -1,6 +1,7 @@
 require 'database_cleaner/mongoid/base'
 require 'database_cleaner/generic/truncation'
 require 'database_cleaner/mongo/truncation_mixin'
+require 'database_cleaner/mongo/stump_mixin'
 require 'database_cleaner/moped/truncation_base'
 require 'mongoid/version'
 
@@ -8,9 +9,9 @@ module DatabaseCleaner
   module Mongoid
     class Stump
       include ::DatabaseCleaner::Mongoid::Base
-      include ::DatabaseCleaner::Generic::Stump
+      include ::DatabaseCleaner::Generic::Truncation
 
-      if ::Mongoid::VERSION < '3'
+      if true #::Mongoid::VERSION < '3'
 
         include ::DatabaseCleaner::Mongo::StumpMixin
 
